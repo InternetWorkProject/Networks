@@ -442,6 +442,7 @@ function nodeActive(a) {
         n = {
             name: b.label,
             colour: b.color,
+		size: b.size,
 		nodeColor: (a == b.source) ? b.attr.attributes.targetColor : b.attr.attributes.sourceColor    // Razieh
         };
 
@@ -487,16 +488,26 @@ function nodeActive(a) {
                 name: d.label,
                 group: (c[g].name) ? c[g].name : "",
                 colour: c[g].colour,
+			size: c[g].size,
 		    nodeColor: c[g].nodeColor    // Razieh
             })
         }
-        e.sort(function (a, b) {
+     /*   e.sort(function (a, b) {
             var c = a.group.toLowerCase(),
-                    d = b.group.toLowerCase(),
-                    e = a.name.toLowerCase(),
-                    f = b.name.toLowerCase();
+                d = b.group.toLowerCase(),
+                e = a.name.toLowerCase(),
+                f = b.name.toLowerCase();
             return c != d ? c < d ? -1 : c > d ? 1 : 0 : e < f ? -1 : e > f ? 1 : 0
+        }); */
+
+	e.sort(function (a, b) {
+            var c = a.size,
+                d = b.size,
+                e = a.name.toLowerCase(),
+                f = b.name.toLowerCase();
+            return c != d ? c < d ? 1 : c > d ? -1 : 0 : e < f ? 1 : e > f ? -1 : 0
         });
+
         d = "";
         for (g in e) {
             c = e[g];
@@ -563,7 +574,7 @@ function nodeActive(a) {
                     h = "";
             if (attr != image_attribute) {
                 if (attr == "Centrality Measures" || attr == "Other Measures") {
-                    h = '<span><U><strong>' + attr + ':</strong></U> ' + d + '</span><br/>'
+                    h = '<span><U><strong>' + attr + ':</strong></U>' + d + '</span><br/>'
                 } else {
                     h = '<p style="text-indent: 10px"><span><strong>' + attr + ':</strong>' + d + '</span></p><br/>'
                 }
