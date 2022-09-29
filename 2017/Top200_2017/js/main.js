@@ -514,7 +514,7 @@ function nodeActive(a) {
             /*if (c.group != d) {
              d = c.group;
              f.push('<li class="cf" rel="' + c.color + '"><div class=""></div><div class="">' + d + "</div></li>");
-             }*/
+             }  */
              f.push('<li class="membership"><div style="width:12px;height:12px;border:1px solid #fff;background:' + c.nodeColor + ';display:inline-block"></div> <a href="#' + c.name + '" onmouseover="sigInst._core.plotter.drawHoverNode(sigInst._core.graph.nodesIndex[\'' + c.id + '\'])\" onclick=\"nodeActive(\'' + c.id + '\')" onmouseout="sigInst.refresh()">' + c.name + "</a> ("+sigInst.clusterNames[c.nodeColor]+") </li>"); // Changed by Razieh
         }
         return f;
